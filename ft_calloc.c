@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/08 13:00:03 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/05/11 10:38:52 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/20 11:53:06 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 13:02:20 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
-int	ft_printf(const char *str, ...)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int		print_size;
-	va_list	input;
-	char	*memo;
+	void	*ptr;
 
-	va_start(input, str);
-	memo = (char *)str;
-	print_size = 0;
-	if (ft_strchr(memo, '%'))
-		memo = ft_replacement(memo);
-	ft_putstr_fd(memo, 1);
-	print_size = ft_strlen(memo);
-	return (print_size);
-}
-
-char	*ft_replacement(char *str)
-{
+	if (count + size < count)
+		return (0);
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

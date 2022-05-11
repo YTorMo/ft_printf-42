@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/08 13:00:03 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/05/11 10:38:52 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/20 13:39:37 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 13:02:31 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
-int	ft_printf(const char *str, ...)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		print_size;
-	va_list	input;
-	char	*memo;
+	char	*sub;
+	char	*sub2;
 
-	va_start(input, str);
-	memo = (char *)str;
-	print_size = 0;
-	if (ft_strchr(memo, '%'))
-		memo = ft_replacement(memo);
-	ft_putstr_fd(memo, 1);
-	print_size = ft_strlen(memo);
-	return (print_size);
-}
-
-char	*ft_replacement(char *str)
-{
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
+	if (len == 0 || ft_strlen(s) < start)
+		return (ft_strdup(""));
+	sub = malloc(len + 1);
+	if (!sub || !s)
+		return (NULL);
+	*sub = '\0';
+	s += start;
+	sub2 = sub;
+	while (len-- && *s != 0)
+	{
+		*sub2 = *s;
+		sub2++;
+		s++;
+	}
+	*sub2 = 0;
+	return (sub);
 }

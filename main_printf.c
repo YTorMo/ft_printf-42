@@ -3,24 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main_printf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yago_42 <Yago_42@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 11:58:58 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/05/08 13:41:05 by Yago_42          ###   ########.fr       */
+/*   Updated: 2022/05/11 10:40:26 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include"ft_printf.h"
+#include "ft_printf.h"
+#include <stdio.h>
 
-int main (void)
+int	main(void)
 {
-    int i;
-    
-    i = printf ("caca: 1");
-    printf (" %i\n", i);
-    ft_printf("caca\n");
-    //printf("%s%6s\n", "hello", "world");
-    //printf("%-6s%-10d%-10c%-10f\n", "hello", 7, 'a', 1.23);
-    return (0);
+	int			i;
+	const char	*str;
+
+	str = "caca\n";
+	//ft_printf("caca %i" , 42);
+	printf("frase %-3.2" ,11);
+	return (0);
 }

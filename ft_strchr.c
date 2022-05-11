@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Yago_42 <Yago_42@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 16:06:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/08 13:32:58 by Yago_42          ###   ########.fr       */
+/*   Updated: 2022/05/10 17:13:30 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*occur;
 
-	while (*s != '\0')
+	if (s)
 	{
-		if ((char)*s == (char)c)
+		while (*s != '\0')
 		{
-			occur = (char *)s;
-			return (occur);
+			if ((char)*s == (char)c)
+			{
+				occur = (char *)s;
+				return (occur);
+			}
+			s++;
 		}
-		s++;
+		if (c == 0)
+			return (occur = (char *)s);
 	}
-	if (c == 0)
-		return (occur = (char *)s);
 	return (NULL);
 }
