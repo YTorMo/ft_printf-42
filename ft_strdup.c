@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 11:35:01 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/04/20 15:27:42 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/20 13:31:48 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 08:56:09 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*str;
+	char	*dup;
 
-	str = s;
-	if (n != 0)
-	{
-		while (n > 0)
-		{
-			*str = 0;
-			str++;
-			n--;
-		}
-	}
+	dup = (char *)malloc(ft_strlen(s1) + 1);
+	if (!dup)
+		return (NULL);
+	ft_strlcpy(dup, s1, ft_strlen(s1) + 1);
+	return (dup);
 }

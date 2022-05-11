@@ -6,7 +6,7 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/08 13:01:01 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/05/11 10:34:16 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/05/11 11:46:54 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 
 int		ft_printf(const char *str, ...);
 char	*ft_replacement(char *str);
+char	*ft_percent_resut(char *str);
 
 #endif
