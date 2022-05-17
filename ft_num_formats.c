@@ -1,24 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_printf.c                                      :+:      :+:    :+:   */
+/*   ft_num_formats.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/08 11:58:58 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/05/11 11:17:51 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/05/17 11:46:53 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/05/17 12:13:33 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	main(void)
+char	*ft_int_format(int num)
 {
-	int			i;
-	const char	*str;
+	return (ft_itoa(num));
+}
 
-	str = "caca\n";
-	ft_printf("caca %i", 42);
-	return (0);
+char	*ft_unsigned_format(unsigned int num)
+{
+	return (ft_itoa(num));
+}
+
+char	*ft_low_hex_format(unsigned int num)
+{
+	return (ft_to_hex(num));
+}
+
+char	*ft_up_hex_format(unsigned int num)
+{
+	char	*rtrn;
+	int		i;
+
+	i = 0;
+	rtrn = ft_to_hex(num);
+	while (rtrn[i])
+	{
+		rtrn[i] = ft_toupper(rtrn[i]);
+		i++;
+	}
+	return (rtrn);
 }

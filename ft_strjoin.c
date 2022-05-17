@@ -6,11 +6,16 @@
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 13:40:37 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/04/25 08:56:18 by ytoro-mo         ###   ########.fr       */
+/*   Updated: 2022/05/17 12:50:19 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_liverator(const char *s1, const char *s2)
+{
+	free((void *)s1);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -37,5 +42,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s2++;
 	}
 	*memo = 0;
+	ft_liverator(s1, s2);
 	return (join);
 }

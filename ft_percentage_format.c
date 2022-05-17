@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_percentage_format.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 10:17:40 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/17 11:48:38 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/05/17 12:20:23 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/05/17 12:25:45 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isdigit(int c)
+char	*ft_percentage_format(void)
 {
-	if ((c >= '0' && c <= '9'))
-		return (1);
-	else
-		return (0);
+	char	*rtrn;
+
+	rtrn = malloc(2);
+	if (!rtrn)
+		return (NULL);
+	rtrn[0] = '%';
+	rtrn[1] = '\0';
+	return (rtrn);
 }

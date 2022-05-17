@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 10:17:40 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/17 11:48:38 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/05/17 12:39:04 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isdigit(int c)
+int	main(void)
 {
-	if ((c >= '0' && c <= '9'))
-		return (1);
-	else
-		return (0);
+	ft_printf("caca %s", "rtrn");
+	return (0);
 }

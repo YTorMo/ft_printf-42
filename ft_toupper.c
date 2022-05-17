@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 10:17:40 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/17 11:48:38 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/19 15:53:11 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/20 12:14:23 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_toupper(int c)
 {
-	if ((c >= '0' && c <= '9'))
-		return (1);
-	else
-		return (0);
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	printf("%c", ft_toupper('d'));
+	return (0);
+}*/
