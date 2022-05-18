@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/24 18:39:52 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 15:28:29 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_lstsize(t_list *lst)
 {
-	int	i;
-	int	*p;
+	unsigned int	size;
 
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
-	return (0);
+	size = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }

@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/20 13:31:48 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 08:56:09 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+char	*ft_strdup(const char *s1)
 {
-	int	i;
-	int	*p;
+	char	*dup;
 
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
-	return (0);
+	dup = (char *)malloc(ft_strlen(s1) + 1);
+	if (!dup)
+		return (NULL);
+	ft_strlcpy(dup, s1, ft_strlen(s1) + 1);
+	return (dup);
 }

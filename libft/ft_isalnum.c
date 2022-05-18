@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/19 10:09:45 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 08:51:14 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_isalnum(int c)
 {
-	int	i;
-	int	*p;
-
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
-	return (0);
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')
+		|| (c >= '0' && c <= '9'))
+		return (1);
+	else
+		return (0);
 }

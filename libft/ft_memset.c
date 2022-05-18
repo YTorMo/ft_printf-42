@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/19 11:08:36 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/20 12:16:11 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
-	int	*p;
+	unsigned char	*memo;
 
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
-	return (0);
+	memo = b;
+	while (len > 0)
+	{
+		*memo = c;
+		memo++;
+		len--;
+	}
+	return (b);
 }

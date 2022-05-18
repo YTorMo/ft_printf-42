@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/03/25 12:54:32 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 08:56:33 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	*p;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
+	i = 0;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (i < n && (str1[i] != '\0' && str2[i] != '\0'))
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	if (i != n)
+		return (str1[i] - str2[i]);
 	return (0);
 }

@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/19 17:20:02 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/20 16:19:24 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	void	*occur;
+	int		i;
+
+	i = 0;
+	occur = (void *)s;
+	while (n--)
+	{
+		if (*(char *)occur == (char)c)
+			return (occur);
+		occur++;
+	}
+	return (NULL);
+}
+
+/*#include <stdio.h>
 
 int	main(void)
 {
-	int	i;
-	int	*p;
-
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
+	char	str[20]= "Estoy hola muchas h";
+	printf("%s", ft_memchr(str, 104, 5));
 	return (0);
-}
+}*/

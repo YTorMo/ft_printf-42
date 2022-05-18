@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/20 13:41:24 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/21 12:34:33 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	*p;
+	char	*trim;
+	size_t	i;
 
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
-	return (0);
+	if (!s1 || !set)
+		return (NULL);
+	while (*s1 != 0 && ft_strchr(set, *s1))
+		s1++;
+	i = ft_strlen(s1);
+	while (i != 0 && ft_strchr(set, s1[i]))
+		i--;
+	trim = ft_substr(s1, 0, i + 1);
+	return (trim);
 }

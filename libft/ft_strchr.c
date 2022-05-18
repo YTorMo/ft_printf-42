@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/19 16:06:17 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/20 16:34:17 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	char	*occur;
+
+	while (*s != '\0')
+	{
+		if ((char)*s == (char)c)
+		{
+			occur = (char *)s;
+			return (occur);
+		}
+		s++;
+	}
+	if (c == 0)
+		return (occur = (char *)s);
+	return (NULL);
+}
+
+/*#include <stdio.h>
 
 int	main(void)
 {
-	int	i;
-	int	*p;
-
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
+	char	str[20]= "Estoy hola muchas h";
+	printf("%s", ft_strchr(str, 122));
 	return (0);
-}
+}*/

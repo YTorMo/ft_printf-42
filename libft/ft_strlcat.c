@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/03/26 13:53:38 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 08:56:23 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
-	int	*p;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
 
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
-	return (0);
+	dst_len = ft_strlen((const char *)dst);
+	src_len = ft_strlen(src);
+	i = 0;
+	if (dst_len > dstsize)
+		return (src_len + dstsize);
+	while (*src != '\0' && dstsize-- > (dst_len + 1))
+	{
+		dst[dst_len + i] = *src;
+		i++;
+		src++;
+	}
+	dst[dst_len + i] = '\0';
+	return (src_len + dst_len);
 }

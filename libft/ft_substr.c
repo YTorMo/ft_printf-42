@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_char_str_formats.c                              :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 13:13:22 by Yago_42           #+#    #+#             */
-/*   Updated: 2022/05/18 15:59:04 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/04/20 13:39:37 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/25 13:02:31 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_char_format(int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
-}
+	char	*sub;
+	char	*sub2;
 
-int	ft_str_format(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		str = "(null)";
-	while (str[i])
+	if (start + len > ft_strlen(s))
+		len = ft_strlen(s) - start;
+	if (len == 0 || ft_strlen(s) < start)
+		return (ft_strdup(""));
+	sub = malloc(len + 1);
+	if (!sub || !s)
+		return (NULL);
+	*sub = '\0';
+	s += start;
+	sub2 = sub;
+	while (len-- && *s != 0)
 	{
-		ft_putchar_fd(str[i], 1);
-		i++;
+		*sub2 = *s;
+		sub2++;
+		s++;
 	}
-	return (i);
+	*sub2 = 0;
+	return (sub);
 }

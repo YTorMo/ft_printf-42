@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoro-mo <ytoro-mo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 12:37:17 by ytoro-mo          #+#    #+#             */
-/*   Updated: 2022/05/18 16:03:24 by ytoro-mo         ###   ########.fr       */
+/*   Created: 2022/03/23 13:16:31 by ytoro-mo          #+#    #+#             */
+/*   Updated: 2022/04/20 12:18:01 by ytoro-mo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	main(void)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int	i;
-	int	*p;
+	size_t	s_count;
+	size_t	i;
 
-	i = ft_printf("\x01\x02\x07\v\x08\f\r\n");
-	ft_printf("\n%i", i);
-	i = printf("\x01\x02\x07\v\x08\f\r\n");
-	printf("\n%i", i);
-	return (0);
+	s_count = 0;
+	while (*(src + s_count) != '\0')
+	{
+		s_count++;
+	}
+	if (size != 0)
+	{
+		i = 0;
+		while (*(src + i) != '\0' && i < (size - 1))
+		{
+			*(dest + i) = *(src + i);
+			i++;
+		}
+		*(dest + i) = '\0';
+	}
+	return (s_count);
 }
